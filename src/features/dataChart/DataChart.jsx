@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Line } from "react-chartjs-2";
 import { chartOptions, chartData } from "./chartInfo";
+// import { getDateFromPeriodInUnix } from "../../utils/helpers";
 
 function DataChart() {
   const [days, setDays] = useState("6M");

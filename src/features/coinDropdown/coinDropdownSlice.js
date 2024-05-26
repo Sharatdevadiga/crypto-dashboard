@@ -13,11 +13,16 @@ export const fetchCoins = createAsyncThunk(
   "fetchCoins",
 
   async () => {
-    const response = await fetch(
-      `https://api.coingecko.com/api/v3/simple/supported_vs_currencies?x_cg_demo_api_key=${API_KEY}`,
-    );
-    const data = await response.json();
-    return { data };
+    try {
+      const response = await fetch(
+        `https://api.coingecko.com/api/v3/simple/supported_vs_currencies?x_cg_demo_api_key=${API_KEY}`,
+      );
+      const data = await response.json();
+      if (!data) throw new Error("Failed to fetch coins");
+      return { data };
+    } catch (err) {
+      Promise.reject(err);
+    }
   },
 );
 
