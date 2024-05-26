@@ -6,6 +6,7 @@ const initialState = {
   coins: [],
   status: "",
   error: "",
+  baseCurrency: "usd",
 };
 
 export const fetchCoins = createAsyncThunk(
@@ -23,7 +24,11 @@ export const fetchCoins = createAsyncThunk(
 const coinDropDownSlice = createSlice({
   name: "coinDropDown",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    setBaseCurrency: (state, action) => {
+      state.baseCurrency = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       // eslint-disable-next-line no-unused-vars
@@ -41,5 +46,5 @@ const coinDropDownSlice = createSlice({
   },
 });
 
-// export const {} = coinDropDownSlice.actions;
+export const { setBaseCurrency } = coinDropDownSlice.actions;
 export default coinDropDownSlice.reducer;

@@ -1,52 +1,43 @@
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { useEffect } from "react";
+import { fetchPortfolioData } from "./portfolioSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../ui/Loader";
+import Error from "../../ui/Error";
+import { pieChartOptions, getPiechartData } from "./PieChart";
 import { Pie } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
 function Portfolio() {
-  // array of
-  const tailwindColors = ["#60a5fa", "#f87171", "#4ade80"];
+  const dispatch = useDispatch();
+  const { status, marketCapData, error } = useSelector(
+    (state) => state.portfolio,
+  );
 
-  // Chart options
-  const options = {
-    plugins: {
-      legend: {
-        labels: {
-          usePointStyle: true,
-          boxHeight: 8,
-          padding: 16,
-        },
-        position: "right",
-        align: "",
-      },
-    },
-    layout: {},
-  };
+  useEffect(() => {
+    dispatch(fetchPortfolioData());
+  }, []);
 
-  const data = {
-    labels: ["Tether", "Luna", "Etherum"],
-    datasets: [
-      {
-        label: "Cryptocurrencies market share",
-        data: [37.5, 37.5, 25],
-        backgroundColor: tailwindColors,
-        borderColor: tailwindColors,
-        borderWidth: 1,
-      },
-    ],
-  };
+  if (status === "loading") return <Loader />;
+  if (status === "error") return <Error message={error} />;
+
+  console.log(marketCapData);
 
   return (
-    <div className="h-80 bg-white p-6">
+    <div className="p-6 bg-white h-80">
       <div className="flex justify-between gap-12">
-        <p className="text-lg font-bold">Portfolio</p>
+        <p className="text-lg font-bold">Portfolio (Global m.cap %)</p>
         <p>
           <span className="opacity-40">Total value: </span>{" "}
-          <span className="font-bold">$1000</span>
+          <span className="font-bold">100%</span>
         </p>
       </div>
-      <div className="self=center flex h-full items-center justify-center">
-        <Pie data={data} options={options} />
+      <div className="flex items-center self-center justify-center h-full">
+        {marketCapData && (
+          <Pie
+            data={getPiechartData(marketCapData)}
+            options={pieChartOptions}
+          />
+        )}
+        ;
       </div>
     </div>
   );

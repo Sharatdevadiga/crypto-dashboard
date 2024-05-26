@@ -22,12 +22,6 @@ export const fetchExchangeRate = createAsyncThunk(
     if (!response.ok) throw new Error("Failed to fetch exchange rate");
 
     const data = await response.json();
-    if (Object.keys(data).length === 0 && data.constructor === Object) {
-      throw new Error(
-        "No data returned from API. Check your coin IDs and API key.",
-      );
-    }
-    console.log(data);
     return data;
   },
 );
@@ -45,6 +39,7 @@ const coinExchangeSlice = createSlice({
     setCoinCount: (state, action) => {
       state.coinCount = action.payload;
     },
+   
   },
 
   extraReducers: (builder) => {
@@ -64,6 +59,6 @@ const coinExchangeSlice = createSlice({
   },
 });
 
-export const { setFromCoin, setToCoin, setCoinCount } =
+export const { setFromCoin, setToCoin, setCoinCount, setBaseCurrency } =
   coinExchangeSlice.actions;
 export default coinExchangeSlice.reducer;

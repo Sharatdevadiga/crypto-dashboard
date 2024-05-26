@@ -1,66 +1,6 @@
 import { useState } from "react";
-
-// ///////////////////////////////////
-import ChartJS from "chart.js/auto";
 import { Line } from "react-chartjs-2";
-import {
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-// import { faker } from "@faker-js/faker";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-);
-
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-  },
-};
-
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
-const data = {
-  labels,
-  datasets: [
-    {
-      label: "Dataset 1",
-      data: Array.from(
-        { length: 10 },
-        () => Math.floor(Math.random() * 2001) - 1000,
-      ),
-
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-    {
-      label: "Dataset 2",
-      data: Array.from(
-        { length: 10 },
-        () => Math.floor(Math.random() * 2001) - 1000,
-      ),
-      borderColor: "rgb(53, 162, 235)",
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-    },
-  ],
-};
-
-// //////////////////////////////////
+import { chartOptions, chartData } from "./chartInfo";
 
 function DataChart() {
   const [days, setDays] = useState("6M");
@@ -72,7 +12,7 @@ function DataChart() {
   const periods = ["1D", "1W", "1M", "6M", "1Y"];
 
   return (
-    <div className="space-y-4 bg-white p-6">
+    <div className="min-h-96 space-y-4 bg-white p-6">
       {/* days, chart-type, currency */}
       <div className="flex flex-wrap justify-center gap-6 sm:flex sm:justify-between">
         <div className="flex gap-1 text-xs font-bold">
@@ -117,7 +57,7 @@ function DataChart() {
 
       {/* chart */}
       <div className="flex w-full items-center justify-center">
-        <Line options={options} data={data} />
+        <Line options={chartOptions} data={chartData} />
       </div>
     </div>
   );
