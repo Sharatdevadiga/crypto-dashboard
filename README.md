@@ -1,4 +1,6 @@
-# Crypto Dashboard (submitted to Almabetter)
+# Crypto Dashboard
+
+(submitted to Almabetter)
 
 Through this web application, you can see real-time data of cryptocurrencies and visualize them through charts.
 
@@ -80,6 +82,6 @@ Contributions are welcome! If you have any ideas, suggestions, or bug reports, p
 ## Contact
 
 Tell me your thoughts and suggestions
-linkdin -> www.linkedin.com/in/
-sharath-devadiga
-email -> sharathdevadiga0046@gmail.com
+
+1. linkdin -> www.linkedin.com/in/sharath-devadiga
+2. email -> sharathdevadiga0046@gmail.com
