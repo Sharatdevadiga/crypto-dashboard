@@ -1,3 +1,9 @@
+/**
+ * Renders a dropdown component for selecting the base currency.
+ * The selected base currency is stored in the Redux store.
+ *
+ * @returns {JSX.Element} The rendered BaseCurrencyDropDown component.
+ */
 import { useDispatch, useSelector } from "react-redux";
 import CoinDropdown from "./CoinDropdown";
 import { setBaseCurrency } from "./coinDropdownSlice";

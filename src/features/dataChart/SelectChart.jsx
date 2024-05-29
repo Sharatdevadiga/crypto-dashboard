@@ -1,3 +1,6 @@
+/**
+ * Renders a select dropdown for selecting the type of chart.
+ */
 import { useDispatch, useSelector } from "react-redux";
 import { setChartType } from "./dataChartSlice";
 

@@ -1,3 +1,6 @@
+/**
+ * Renders a set of duration buttons for selecting a time period.
+ */
 import { setFromDate } from "./dataChartSlice";
 import { useDispatch, useSelector } from "react-redux";
 

@@ -1,3 +1,9 @@
+
+/**
+ * Component for exchanging coins.
+ *
+ * This component allows users to select a coin to sell and a coin to buy, enter the amount of the selling coin, and calculate the converted value in the buying coin based on the exchange rates fetched from the server.
+ */
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -6,12 +12,10 @@ import { setCoinCount, setFromCoin, setToCoin } from "./coinExchangeSlice";
 import { fetchExchangeRate } from "./coinExchangeSlice";
 
 function CoinExchange() {
-  // on initial render, fetch exchange rates
   useEffect(() => {
     dispatch(fetchExchangeRate());
   }, []);
 
-  // hooks to get data and action from redux slice
   const dispatch = useDispatch();
   const { fromCoin, toCoin, rates, coinCount } = useSelector(
     (state) => state.coinExchange,

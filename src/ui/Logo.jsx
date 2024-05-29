@@ -6,7 +6,7 @@ function Logo() {
         alt="almabetter logo"
         className="h-12"
       />
-      <p>CryptoCurrency Dashboard</p>
+      <p>Crypto Dashboard</p>
     </div>
   );
 }

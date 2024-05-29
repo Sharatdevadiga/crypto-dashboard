@@ -1,3 +1,13 @@
+
+
+/**
+ * Renders the DataChart component.
+ * 
+ * This component displays a data chart with options to select the cryptocurrency, chart type, and duration.
+ * It includes child components: SelectCrypto, SelectChart, DurationButtons, and ChartBasedOnType.
+ * 
+ * @returns {JSX.Element} The rendered DataChart component.
+ */
 import SelectCrypto from "./SelectCrypto";
 import SelectChart from "./SelectChart";
 import DurationButtons from "./DurationButtons";

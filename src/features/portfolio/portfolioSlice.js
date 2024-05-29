@@ -1,3 +1,9 @@
+/**
+ The portfolioSlice reducer manages the state related to the portfolio data, including market cap data, status, and error.
+ * The fetchPortfolioData async thunk is used to fetch the portfolio data from the API.
+te accordingly.
+ * 
+ */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { API_KEY_TYPE, BASE_URL } from "../../config/config";
 import { fetchFromUrl } from "../../services/fetchFromUrl";

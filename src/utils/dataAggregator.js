@@ -1,3 +1,11 @@
+/**
+ * Aggregates data based on the specified period.
+ *
+ * @param {Array<Array<any>>} data - The data to be aggregated.
+ * @param {string} period - The period for aggregation. Possible values are "1D", "1W", "1M", "6M", "1Y".
+ * @returns {Array<Array<any>>} - The aggregated data.
+ * @throws {Error} - If an invalid period is provided.
+ */
 export default function aggregateData(data, period) {
   let result = [];
   period = getPeriod(period);
@@ -25,6 +33,12 @@ export default function aggregateData(data, period) {
   return result;
 }
 
+/**
+ * Converts the duration to the corresponding period.
+ *
+ * @param {string} duration - The duration. Possible values are "1D", "1W", "1M", "6M", "1Y".
+ * @returns {string} - The corresponding period.
+ */
 export function getPeriod(duration) {
   switch (duration) {
     case "1D":
@@ -42,6 +56,13 @@ export function getPeriod(duration) {
   }
 }
 
+/**
+ * Aggregates data by hours.
+ *
+ * @param {Array<Array<any>>} data - The data to be aggregated.
+ * @param {number} hours - The number of hours to aggregate by.
+ * @returns {Array<Array<any>>} - The aggregated data.
+ */
 function aggregateByHours(data, hours) {
   let result = {};
 
@@ -73,6 +94,14 @@ function aggregateByHours(data, hours) {
 
   return resultArray;
 }
+
+/**
+ * Aggregates data by days.
+ *
+ * @param {Array<Array<any>>} data - The data to be aggregated.
+ * @param {number} days - The number of days to aggregate by.
+ * @returns {Array<Array<any>>} - The aggregated data.
+ */
 
 function aggregateByDays(data, days) {
   let result = {};
@@ -114,6 +143,13 @@ function aggregateByDays(data, days) {
 
   return resultArray;
 }
+
+/**
+ * Aggregates data by months.
+ *
+ * @param {Array<Array<any>>} data - The data to be aggregated.
+ * @returns {Array<Array<any>>} - The aggregated data.
+ */
 
 function aggregateByMonths(data) {
   let result = {};

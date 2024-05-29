@@ -1,3 +1,14 @@
+
+
+/**
+ * Retrieves the chart data, default chart options, and horizontal bar options based on the provided data.
+ *
+ * @param {Array} dataFromAPI - The data received from the API.
+ * @param {string} from - The starting point for aggregating the data.
+ * @param {string} baseCurrency - The base currency for the price.
+ * @returns {Object} - An object containing the chart data, default chart options, and horizontal bar options.
+ */
+
 import ChartJS from "chart.js/auto";
 import aggregateData from "../../utils/dataAggregator";
 

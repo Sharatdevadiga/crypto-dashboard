@@ -5,6 +5,9 @@ import sidebarReducer from "./features/sidebar/sidebarSlice";
 import portfolioReducer from "./features/portfolio/portfolioSlice";
 import dataChartReducer from "./features/dataChart/dataChartSlice";
 
+/**
+ * The Redux store for the entire application.
+ */
 const store = configureStore({
   reducer: {
     coinExchange: coinExchangeReducer,

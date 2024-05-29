@@ -1,3 +1,7 @@
+/**
+ * @description This file contains the implementation of a pie chart component for displaying cryptocurrencies market share.
+ */
+
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -5,7 +9,9 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const colors = ["#60a5fa", "#f87171", "#4ade80", "#a78bfa", "#fde047"];
 const SECTIONS = 5;
 
-// Chart options
+/**
+ * @constant {object} pieChartOptions - The options for configuring the pie chart.
+ */
 export const pieChartOptions = {
   plugins: {
     legend: {
@@ -24,6 +30,12 @@ export const pieChartOptions = {
   layout: {},
 };
 
+/**
+ * @function getPiechartData
+ * @description Generates the data for the pie chart based on the provided data.
+ * @param {object} data - The data containing the market share of cryptocurrencies.
+ * @returns {object} The formatted data for the pie chart.
+ */
 export const getPiechartData = (data) => {
   // getting labels and remaining
   const mCap = Object.entries(data).sort((a, b) => b[1] - a[1]);

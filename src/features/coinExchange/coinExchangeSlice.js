@@ -1,9 +1,23 @@
+/**
+ This module contains the Redux slice for managing the coin exchange feature.
+ */
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { API_KEY_TYPE, BASE_URL } from "../../config/config";
 import { fetchFromUrl } from "../../services/fetchFromUrl";
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
+/**
+ * @typedef {Object} CoinExchangeState
+ * @property {string} fromCoin - The selected "from" coin.
+ * @property {string} toCoin - The selected "to" coin.
+ * @property {string} coinCount - The number of coins to be exchanged.
+ * @property {string} rates - The exchange rates.
+ * @property {string} convertedVal - The converted value.
+ * @property {string} status - The status of the exchange rate fetch operation.
+ * @property {string} error - The error message, if any.
+ */
 const initialState = {
   fromCoin: "btc",
   toCoin: "eth",
@@ -14,6 +28,12 @@ const initialState = {
   error: "",
 };
 
+/**
+ * Fetches the exchange rate from the API.
+ * @async
+ * @function fetchExchangeRate
+ * @returns {Promise} A promise that resolves to the fetched exchange rate.
+ */
 export const fetchExchangeRate = createAsyncThunk(
   "fetchExchangeRate",
   async () => {
@@ -22,6 +42,10 @@ export const fetchExchangeRate = createAsyncThunk(
   },
 );
 
+/**
+ * Redux slice for managing the coin exchange feature.
+ * @type {Slice}
+ */
 const coinExchangeSlice = createSlice({
   name: "coinExchange",
   initialState: initialState,

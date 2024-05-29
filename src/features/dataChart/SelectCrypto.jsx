@@ -1,3 +1,12 @@
+/**
+ * Component for selecting cryptocurrencies.
+ *
+ * This component allows the user to select up to two cryptocurrencies from a list of available options.
+ * It displays a dropdown menu with checkboxes for each cryptocurrency, and shows the selected cryptocurrencies in a compact format.
+ * If the user tries to select more than two cryptocurrencies, an error message is displayed.
+ *
+ * @returns {JSX.Element} The SelectCrypto component.
+ */
 /* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from "react";
 import { FaAngleDown } from "react-icons/fa";
@@ -32,12 +41,6 @@ function SelectCrypto() {
     }
   };
 
-  //testing
-  useEffect(() => {
-    console.log(selectedCrypto);
-  }, [selectedCrypto]);
-  //
-
   // clearing multiselect error after 1 sec
   useEffect(() => {
     if (multiSelectError) {
@@ -71,10 +74,10 @@ function SelectCrypto() {
   return (
     <div ref={ref}>
       <div
-        className="relative flex items-center justify-between h-8 py-1 pl-6 pr-2 rounded-lg w-44 bg-blue-50"
+        className="relative flex h-8 w-44 items-center justify-between rounded-lg bg-blue-50 py-1 pl-6 pr-2"
         onClick={() => handleclick()}
       >
-        <div className="pr-4 overflow-hidden w-36 text-nowrap">
+        <div className="w-36 overflow-hidden text-nowrap pr-4">
           {coinListStatus === "loading"
             ? "Loading..."
             : coinListStatus === "Error"

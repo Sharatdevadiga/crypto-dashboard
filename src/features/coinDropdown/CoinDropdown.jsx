@@ -1,4 +1,14 @@
+/**
+ * A dropdown component for selecting a coin.
+ *
+ * @component
+ * @param {string} selectedCoin - The currently selected coin.
+ * @param {function} onChange - The function to be called when the selected coin changes.
+ * @param {string} type - The type of the dropdown (e.g., "baseCurrency").
+ * @returns {JSX.Element} The CoinDropdown component.
+ */
 /* eslint-disable react/prop-types */
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCoins } from "./coinDropdownSlice";
 import { useEffect } from "react";

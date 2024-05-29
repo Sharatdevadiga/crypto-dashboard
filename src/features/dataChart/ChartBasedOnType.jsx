@@ -1,3 +1,8 @@
+/**
+ * Renders a chart based on the selected chart type, cryptocurrency, date range, and base currency.
+ * Fetches chart data from an API and displays it using react-chartjs-2 library.
+ * Handles loading and error states.
+ */
 import { Bar, Line } from "react-chartjs-2";
 import { getChartData } from "./ChartInfo";
 import { useEffect, useState } from "react";
@@ -56,7 +61,7 @@ function ChartBasedOnType() {
   return (
     chartOptions &&
     chartData && (
-      <div className="flex items-center justify-center w-full">
+      <div className="flex w-full items-center justify-center">
         {chartType === "line" && (
           <Line options={chartOptions} data={chartData} />
         )}

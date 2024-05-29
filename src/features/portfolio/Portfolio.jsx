@@ -1,3 +1,9 @@
+/**
+ * Renders the Portfolio component which displays the Global mCap% of majour cryptocurrencies.
+ * The component fetches portfolio data from the server and renders a pie chart
+ * representing the market capitalization percentage of each cryptocurrency in the portfolio.
+ * It also displays the total value of the portfolio.
+ */
 import { useEffect } from "react";
 import { fetchPortfolioData } from "./portfolioSlice";
 import { useDispatch, useSelector } from "react-redux";
