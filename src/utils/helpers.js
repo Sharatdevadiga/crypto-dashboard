@@ -1,14 +1,21 @@
+// string helpers
 export function capitilize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+// date helpers
 export function toUnixTimestamp(date) {
   return Math.floor(date.getTime() / 1000);
 }
 
-export function getCurrentDayAtTimeInUnix(time) {
+export function unixToNormalTime(unixTimestamp) {
+  return new Date(unixTimestamp).toDateString();
+}
+
+export function getCurrentHourInUnix() {
   const date = new Date();
-  date.setHours(Number(time), 0, 0, 0); // Set the time to 10:00:00.000
+  date.setMinutes(0, 0, 0); // Set the minutes and seconds to 0
+
   return toUnixTimestamp(date);
 }
 

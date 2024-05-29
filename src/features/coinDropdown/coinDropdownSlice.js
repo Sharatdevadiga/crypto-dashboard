@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { API_KEY_TYPE, BASE_URL } from "../../config/config";
 
-const API_KEY = "CG-WBiAUmyhrtqMvAUk27pVsTaj";
+const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 const initialState = {
-  coins: [],
-  status: "",
-  error: "",
+  coins: null,
+  status: "idle",
+  error: null,
   baseCurrency: "usd",
 };
 
@@ -15,7 +16,7 @@ export const fetchCoins = createAsyncThunk(
   async () => {
     try {
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/simple/supported_vs_currencies?x_cg_demo_api_key=${API_KEY}`,
+        `${BASE_URL}simple/supported_vs_currencies?${API_KEY_TYPE}=${API_KEY}`,
       );
       const data = await response.json();
       if (!data) throw new Error("Failed to fetch coins");
@@ -44,9 +45,9 @@ const coinDropDownSlice = createSlice({
         state.coins = action.payload.data;
         state.status = "idle";
       })
-      .addCase(fetchCoins.rejected, (state) => {
+      .addCase(fetchCoins.rejected, (state, action) => {
         state.status = "error";
-        state.error = "error";
+        state.error = action.error.message;
       });
   },
 });

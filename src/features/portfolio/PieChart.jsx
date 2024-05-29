@@ -25,10 +25,8 @@ export const pieChartOptions = {
 };
 
 export const getPiechartData = (data) => {
-  // if (!data) return { labels: [], data: [] };
-  console.log(data);
+  // getting labels and remaining
   const mCap = Object.entries(data).sort((a, b) => b[1] - a[1]);
-  console.log(mCap);
   const labels = mCap
     .map((coin) => `${coin[0]} (${coin[1].toFixed(2)}%)`)
     .slice(0, SECTIONS - 1);
@@ -36,6 +34,7 @@ export const getPiechartData = (data) => {
     .slice(SECTIONS - 1)
     .reduce((acc, coin) => acc + coin[1], 0);
   labels.push(`Other (${reaminingPercent.toFixed(2)}%)`);
+
   const datasets = [
     {
       label: "Cryptocurrencies market share",

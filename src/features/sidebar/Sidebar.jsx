@@ -16,10 +16,11 @@ function Sidebar() {
   }, [baseCurrency]);
 
   return (
-    <div className="scrollbar-thumb-rounded-full scrollbar-h-4 flex h-screen min-w-72 flex-col items-center space-y-2 overflow-y-scroll bg-white p-4 scrollbar scrollbar-thin scrollbar-track-white scrollbar-thumb-blue-50">
-      <p className="my-4 text-center text-xl font-bold">
-        Cryptocurrency by m.cap
-      </p>
+    <div className="relative flex flex-col items-center h-screen px-4 pt-0 pb-4 space-y-2 overflow-y-scroll bg-white scrollbar-thumb-rounded-full scrollbar-h-4 min-w-72 scrollbar-thin">
+      <div className="sticky top-0 z-10 w-full px-2 py-2 my-4 text-xl font-bold text-center rounded-t-lg bg-blue-50/50 backdrop-blur backdrop-filter">
+        <p>Cryptocurrency by m.cap</p>
+      </div>
+
       <div>
         {status === "loading" && <Loader />}
         {error && <Error message="Loading failed" />}

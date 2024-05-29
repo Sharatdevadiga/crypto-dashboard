@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { API_KEY_TYPE, BASE_URL } from "../../config/config";
+import { fetchFromUrl } from "../../services/fetchFromUrl";
 
-const API_KEY = "CG-WBiAUmyhrtqMvAUk27pVsTaj";
+const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 const initialState = {
   fromCoin: "btc",
@@ -15,14 +17,8 @@ const initialState = {
 export const fetchExchangeRate = createAsyncThunk(
   "fetchExchangeRate",
   async () => {
-    const response = await fetch(
-      `https://api.coingecko.com/api/v3/exchange_rates?x_cg_demo_api_key=${API_KEY}`,
-    );
-
-    if (!response.ok) throw new Error("Failed to fetch exchange rate");
-
-    const data = await response.json();
-    return data;
+    const url = `${BASE_URL}exchange_rates?${API_KEY_TYPE}=${API_KEY}`;
+    return await fetchFromUrl(url);
   },
 );
 
@@ -39,7 +35,6 @@ const coinExchangeSlice = createSlice({
     setCoinCount: (state, action) => {
       state.coinCount = action.payload;
     },
-   
   },
 
   extraReducers: (builder) => {

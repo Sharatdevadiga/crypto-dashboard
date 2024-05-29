@@ -1,4 +1,5 @@
 import ChartJS from "chart.js/auto";
+import aggregateData from "../../utils/dataAggregator";
 
 import {
   CategoryScale,
@@ -9,7 +10,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-// import { faker } from "@faker-js/faker";
 
 ChartJS.register(
   CategoryScale,
@@ -21,38 +21,91 @@ ChartJS.register(
   Legend,
 );
 
-export const chartOptions = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-  },
-};
+export function getChartData(dataFromAPI, from, baseCurrency) {
+  if (!dataFromAPI.length) return {};
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+  console.log(dataFromAPI);
 
-export const chartData = {
-  labels,
-  datasets: [
-    {
-      label: "Dataset 1",
-      data: Array.from(
-        { length: 10 },
-        () => Math.floor(Math.random() * 2001) - 1000,
-      ),
+  const aggregatedChartData = dataFromAPI.map((item) => ({
+    name: item[0],
+    aggregatedData: aggregateData(item[1], from),
+  }));
 
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+  const borderColors = ["#fb7185", "#60a5fa", "#4ade80"];
+  const backgroundColors = [
+    "rgba(251, 113, 134, 0.5)",
+    "rgba(96, 165, 250, 0.5)",
+    "rgba(74, 222, 128, 0.5)",
+  ];
+
+  const commonChartOptions = {
+    plugins: {
+      legend: {
+        labels: {
+          usePointStyle: true,
+          boxHeight: 8,
+          padding: 16,
+          font: {
+            weight: "bold",
+            size: 13,
+          },
+        },
+        position: "top",
+      },
     },
-    {
-      label: "Dataset 2",
-      data: Array.from(
-        { length: 10 },
-        () => Math.floor(Math.random() * 2001) - 1000,
-      ),
-      borderColor: "rgb(53, 162, 235)",
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
+  };
+
+  let defaultChartOptions = {
+    indexAxis: "x",
+    responsive: true,
+    ...commonChartOptions,
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Time",
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: `Price in ${baseCurrency}`,
+        },
+      },
     },
-  ],
-};
+  };
+
+  const horizontalBarOptions = {
+    indexAxis: "y",
+    responsive: true,
+    ...commonChartOptions,
+    scales: {
+      y: {
+        title: {
+          display: true,
+          text: "Time",
+        },
+      },
+      x: {
+        title: {
+          display: true,
+          text: `Price in ${baseCurrency}`,
+        },
+      },
+    },
+  };
+
+  const labels = aggregatedChartData[0].aggregatedData.map((item) => item[0]);
+
+  const chartData = {
+    labels,
+    datasets: aggregatedChartData.map((item, index) => ({
+      label: item.name,
+      data: item.aggregatedData.map((item) => item[1]),
+      borderColor: borderColors[index],
+      backgroundColor: backgroundColors[index],
+    })),
+  };
+
+  return { chartData, defaultChartOptions, horizontalBarOptions };
+}

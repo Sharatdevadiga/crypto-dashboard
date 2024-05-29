@@ -16,11 +16,6 @@ function Portfolio() {
     dispatch(fetchPortfolioData());
   }, []);
 
-  if (status === "loading") return <Loader />;
-  if (status === "error") return <Error message={error} />;
-
-  console.log(marketCapData);
-
   return (
     <div className="p-6 bg-white h-80">
       <div className="flex justify-between gap-12">
@@ -31,6 +26,8 @@ function Portfolio() {
         </p>
       </div>
       <div className="flex items-center self-center justify-center h-full">
+        {status === "loading" && <Loader />}
+        {status === "error" && <Error message={error} />}
         {marketCapData && (
           <Pie
             data={getPiechartData(marketCapData)}
