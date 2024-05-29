@@ -4,14 +4,14 @@ Through this web application, you can see real-time data of cryptocurrencies and
 
 ## Table of Contents
 
-- [Introduction]
-- [Features]
-- [Demo/Screenshots]
-- [Installation]
-- [Usage]
-- [Contributing]
-- [License]
-- [Contact]
+- [Introduction](#introduction)
+- [Features](#features)
+- [Demo/Screenshots](#demoscreenshots)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Introduction
 
