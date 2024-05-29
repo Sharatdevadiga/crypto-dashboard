@@ -1,4 +1,5 @@
-# Crypto Dashboard (submitted to Almabetter)
+# Crypto Dashboard
+(submitted to Almabetter)
 
 Through this web application, you can see real-time data of cryptocurrencies and visualize them through charts.
 
