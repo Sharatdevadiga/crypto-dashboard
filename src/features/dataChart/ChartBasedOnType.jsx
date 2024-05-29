@@ -4,7 +4,7 @@
  * Handles loading and error states.
  */
 import { Bar, Line } from "react-chartjs-2";
-import { getChartData } from "./ChartInfo.jsx";
+import { getChartData } from "./ChartInfo";
 import { useEffect, useState } from "react";
 import { fetchChartData } from "./dataChartSlice";
 import { getDateFromPeriodInUnix } from "../../utils/helpers";
