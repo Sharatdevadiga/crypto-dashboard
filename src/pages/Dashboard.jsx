@@ -1,3 +1,6 @@
+/**
+ * Renders the Dashboard page, by bringing together all the components.
+ */
 import CoinExchange from "../features/coinExchange/CoinExchange";
 import DataChart from "../features/dataChart/DataChart";
 import BaseCurrencyDropDown from "../features/coinDropdown/BaseCurrencyDropDown";
@@ -14,7 +17,7 @@ function Dashboard() {
         <Logo />
 
         {/* section after logo */}
-        <div className="grid h-auto gap-6 px-12 py-4 mt-5 rounded-md bg-gray-50 md:mx-12 lg:grid-cols-4">
+        <div className="mt-5 grid h-auto gap-6 rounded-md bg-gray-50 px-2 py-4 sm:px-12 md:mx-12 lg:grid-cols-4">
           {/* left section */}
           <div className="gap-3 space-y-4 lg:col-span-3">
             <div className="space-y-4">

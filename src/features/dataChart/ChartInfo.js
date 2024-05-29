@@ -1,5 +1,3 @@
-
-
 /**
  * Retrieves the chart data, default chart options, and horizontal bar options based on the provided data.
  *
@@ -50,6 +48,9 @@ export function getChartData(dataFromAPI, from, baseCurrency) {
   ];
 
   const commonChartOptions = {
+    responsive: true,
+    maintainAspectRatio: true,
+
     plugins: {
       legend: {
         labels: {

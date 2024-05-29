@@ -1,3 +1,10 @@
+/**
+ * Searchbar component for searching and selecting cryptocurrencies.
+ *
+ * This component renders an input field with a magnifying glass icon for searching cryptocurrencies by name. It also displays a dropdown list of search results based on the user's input. The user can select a cryptocurrency from the dropdown list, and the selected cryptocurrency will be stored in the Redux store.
+ *
+
+ */
 import { useEffect, useRef, useState } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,8 +60,8 @@ function Searchbar() {
       );
 
   return (
-    <div ref={searchRef} className="relative w-full">
-      <div className="flex items-center w-full px-4 bg-white rounded-md shadow-sm outline-blue-400 focus:outline">
+    <div ref={searchRef} className="relative  sm:w-full">
+      <div className="flex w-[100%] items-center rounded-md bg-white px-4 shadow-sm outline-blue-400 focus:outline lg:h-[100%]">
         <HiMagnifyingGlass />
         <input
           type="text"
@@ -66,7 +73,7 @@ function Searchbar() {
         />
       </div>
       {isOptionsClosed && (
-        <div className="absolute left-0 z-50 w-full h-48 px-6 py-2 overflow-y-scroll bg-white border-2 rounded-lg scrollbar-thin">
+        <div className="absolute left-0 z-50 h-48 w-full overflow-y-scroll rounded-lg border-2 bg-white px-6 py-2 scrollbar-thin">
           {coinListStatus === "loading" && <Loader />}
           {coinListStatus === "error" && <Error message="Error" />}
           {results.length ? (
