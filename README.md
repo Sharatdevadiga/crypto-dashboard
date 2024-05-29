@@ -35,7 +35,7 @@ Crypto Dashboard is a front-end project developed using Vite.js. It aims to prov
    ![](./screenshots/2.%20Data_Visualization2.png)
 
 3. Search Bar(highlited)
-   ![Horizontal bar chart](./screenshots/2.%20Data_Visualization2.png)
+   ![Horizontal bar chart](./screenshots/3.%20SearchBar.png)
 
 4. Coin exchange and Portfolio (higllited)
    ![Coin exchange and portfolio](./screenshots/4.%20CoinExchange_And_Portfolio.png)
