@@ -77,7 +77,7 @@ function Searchbar() {
         />
       </div>
       {isOptionsClosed && (
-        <div className="absolute left-0 z-50 h-48 w-full overflow-y-scroll rounded-lg border-2 bg-white px-6 py-2 scrollbar-thin dark:border-gray-700 dark:bg-slate-900">
+        <div className="custom-scrollbar absolute left-0 z-50 h-48 w-full overflow-y-scroll rounded-lg border-2 bg-white px-6 py-2 scrollbar-thin dark:border-gray-700 dark:bg-slate-950">
           {coinListStatus === "loading" && <Loader />}
           {coinListStatus === "error" && <Error message="Error" />}
           {results.length ? (

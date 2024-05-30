@@ -34,10 +34,10 @@ function SelectCrypto() {
       dispatch(
         setSelectedCrypto(selectedCrypto.filter((item) => item !== coinId)),
       );
-    } else if (selectedCrypto.length < 2) {
+    } else if (selectedCrypto.length < 4) {
       dispatch(setSelectedCrypto([...selectedCrypto, coinId]));
     } else {
-      setMultiSelectError("Upto 2 coins only");
+      setMultiSelectError("Upto 4 coins only");
     }
   };
 

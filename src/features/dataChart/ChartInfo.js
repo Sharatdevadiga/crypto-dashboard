@@ -38,11 +38,12 @@ export function getChartData(dataFromAPI, from, baseCurrency) {
     aggregatedData: aggregateData(item[1], from),
   }));
 
-  const borderColors = ["#fb7185", "#60a5fa", "#4ade80"];
+  const borderColors = ["#fb7185", "#60a5fa", "#4ade80", "#fbbf24"];
   const backgroundColors = [
     "rgba(251, 113, 134, 0.5)",
     "rgba(96, 165, 250, 0.5)",
     "rgba(74, 222, 128, 0.5)",
+    "rgba(251, 191, 36, 0.5)",
   ];
 
   // eslint-disable-next-line no-unused-vars

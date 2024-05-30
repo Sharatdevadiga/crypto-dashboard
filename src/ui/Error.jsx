@@ -4,7 +4,7 @@ import { MdError } from "react-icons/md";
 function Error({ message = "Error" }) {
   return (
     <div
-      className="relative flex items-center justify-center gap-2 px-4 py-3 m-auto text-red-700 rounded max-w-44"
+      className="relative m-auto flex w-full items-center justify-center gap-2 rounded px-4 py-3 text-red-700 backdrop-blur-md dark:bg-slate-800"
       role="alert"
     >
       <strong className="font-bold">
