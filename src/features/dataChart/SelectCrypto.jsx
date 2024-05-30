@@ -74,7 +74,7 @@ function SelectCrypto() {
   return (
     <div ref={ref}>
       <div
-        className="relative flex h-8 w-44 items-center justify-between rounded-lg bg-blue-50 py-1 pl-6 pr-2"
+        className="relative flex h-8 w-44 items-center justify-between rounded-lg bg-blue-50 py-1 pl-6 pr-2 outline-blue-400 focus:outline dark:bg-slate-800 dark:text-white"
         onClick={() => handleclick()}
       >
         <div className="w-36 overflow-hidden text-nowrap pr-4">
@@ -95,7 +95,7 @@ function SelectCrypto() {
       </div>
 
       <div
-        className={`absolute  h-56 space-y-3 overflow-y-scroll rounded-lg border-2 border-gray-300 bg-white p-3 ${isClose && "invisible"} scrollbar-thin`}
+        className={`absolute  h-56 space-y-3 overflow-y-scroll rounded-lg border-2 border-gray-300 bg-white p-3 ${isClose && "invisible"} custom-scrollbar dark:border-gray-700 dark:bg-slate-950 dark:text-white`}
       >
         {" "}
         {showError && (

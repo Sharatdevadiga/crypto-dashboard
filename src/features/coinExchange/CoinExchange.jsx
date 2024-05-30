@@ -1,4 +1,3 @@
-
 /**
  * Component for exchanging coins.
  *
@@ -33,7 +32,7 @@ function CoinExchange() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-6 p-6 overflow-hidden bg-white rounded-md md:px-6 lg:py-6 xl:px-16">
+    <div className="flex flex-col items-center gap-6 overflow-hidden rounded-lg rounded-md bg-white p-6 md:px-6 lg:py-6 xl:px-16 dark:bg-slate-950">
       <p className="text-lg font-bold">Exchange Coins</p>
 
       <div className="space-y-6">
@@ -49,7 +48,7 @@ function CoinExchange() {
 
           <input
             type="number"
-            className="self-end w-24 px-2 py-2 text-sm text-center border-2 rounded-lg outline-blue-400 focus:outline md:w-24 md:px-1 lg:w-28 xl:w-36 xl:px-4"
+            className="w-24 self-end rounded-lg border-2 px-2 py-2 text-center text-sm outline-blue-400 focus:outline md:w-24 md:px-1 lg:w-28 xl:w-36 xl:px-4 dark:bg-slate-900"
             placeholder="Enter Val"
             value={coinCount}
             onChange={(e) => dispatch(setCoinCount(e.target.value))}
@@ -65,15 +64,20 @@ function CoinExchange() {
               onChange={(e) => dispatch(setToCoin(e.target.value))}
             />
           </div>
-          <span className="py-2 text-sm font-semibold text-green-700 rounded-lg w:24 md:w-24 md:px-1 lg:w-28 xl:w-36 xl:px-4">
+          <span className="w:24 rounded-lg py-2 text-sm font-semibold text-green-700 md:w-24 md:px-1 lg:w-28 xl:w-36 xl:px-4">
             {convertedVal} {toCoin}
           </span>
         </div>
       </div>
 
       {/* exchange button */}
-      <div className="self-center w-32 px-6 py-2 text-center text-white bg-blue-600 rounded-lg">
-        <button onClick={() => handleClick()}>Exchange</button>
+      <div>
+        <button
+          className="w-32 transform self-center rounded-lg bg-blue-600 px-6 py-2 text-center text-white transition-all duration-150 ease-in-out hover:bg-blue-500 active:scale-95 "
+          onClick={() => handleClick()}
+        >
+          Exchange
+        </button>
       </div>
     </div>
   );

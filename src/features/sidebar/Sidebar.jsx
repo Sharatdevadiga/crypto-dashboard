@@ -19,8 +19,8 @@ function Sidebar() {
   }, [baseCurrency]);
 
   return (
-    <div className="scrollbar-thumb-rounded-full scrollbar-h-4 relative flex h-screen min-w-72 flex-col items-center space-y-2 overflow-y-scroll bg-white px-4 pb-4 pt-0 scrollbar-thin">
-      <div className="sticky top-0 z-10 my-4 w-full rounded-t-lg bg-blue-50/50 px-2 py-2 text-center text-xl font-bold backdrop-blur backdrop-filter">
+    <div className="scrollbar-thumb-rounded-full scrollbar-h-4 custom-scrollbar relative flex h-screen flex-col items-center space-y-2 overflow-y-scroll rounded-lg bg-white pb-4 pl-4 pr-0 pt-0 scrollbar-thin">
+      <div className="sticky top-0 z-10 my-4 w-full rounded-t-lg bg-blue-50/50 px-2 py-2 text-center text-xl font-bold backdrop-blur backdrop-filter dark:bg-slate-800/50 ">
         <p>Cryptocurrency by m.cap</p>
       </div>
 

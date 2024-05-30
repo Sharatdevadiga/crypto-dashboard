@@ -28,7 +28,6 @@ function ChartBasedOnType() {
 
   useEffect(() => {
     let fromDateInUnix = getDateFromPeriodInUnix(fromDate);
-    console.log(fromDateInUnix, toDateInUnix, selectedCrypto[0], baseCurrency);
     dispatch(
       fetchChartData({
         from: fromDateInUnix,

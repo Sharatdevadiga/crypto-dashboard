@@ -23,7 +23,7 @@ function CoinDropdown({ selectedCoin, onChange, type }) {
 
   return (
     <select
-      className={` ${type === "baseCurrency" ? "bg-white" : "bg-gray-50"} rounded-lg px-4 py-2  outline-blue-400 focus:outline`}
+      className={` ${type === "baseCurrency" ? "bg-white" : "bg-gray-50"} dark-text-white rounded-lg px-4  py-2 outline-blue-400 focus:outline dark:bg-slate-900`}
       value={selectedCoin}
       onChange={onChange}
     >
@@ -32,7 +32,7 @@ function CoinDropdown({ selectedCoin, onChange, type }) {
       {coins &&
         coins.map((coin, index) => (
           <option value={`${coin}`} key={index}>
-            {coin}
+            {coin.toUpperCase()}
           </option>
         ))}
     </select>

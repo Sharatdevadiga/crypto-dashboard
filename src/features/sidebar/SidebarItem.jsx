@@ -15,7 +15,7 @@ import { capitilize } from "../../utils/helpers";
 function SidebarItem({ coin, baseCurrency }) {
   const percentageChange = coin.price_change_percentage_24h;
   return (
-    <div className="grid grid-cols-2 border-b-2 border-gray-200/30 p-3">
+    <div className="grid grid-cols-2 border-b-2 border-gray-200/30 p-3 dark:border-slate-700/50">
       <div>
         <div className="mb-1 flex items-center gap-2 text-sm font-semibold">
           <img

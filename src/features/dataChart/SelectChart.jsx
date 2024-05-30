@@ -12,7 +12,7 @@ function SelectChart() {
     <select
       name="Chart selector"
       value={chartType}
-      className="rounded-lg bg-blue-50 px-4 py-1 outline-blue-400 focus:outline"
+      className="rounded-lg bg-blue-50 px-4 py-1 outline-blue-400 focus:outline dark:bg-slate-800 dark:text-white "
       onChange={(e) => dispatch(setChartType(e.target.value))}
     >
       <option value="line">Line chart</option>

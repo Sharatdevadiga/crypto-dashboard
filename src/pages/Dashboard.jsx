@@ -5,21 +5,21 @@ import CoinExchange from "../features/coinExchange/CoinExchange";
 import DataChart from "../features/dataChart/DataChart";
 import BaseCurrencyDropDown from "../features/coinDropdown/BaseCurrencyDropDown";
 import Searchbar from "../features/searchBar/Searchbar";
-import Logo from "../ui/Logo";
 import Portfolio from "../features/portfolio/Portfolio";
 import Sidebar from "../features/sidebar/Sidebar";
 import Footer from "../ui/Footer";
+import Header from "../ui/Header";
 
 function Dashboard() {
   return (
     <div>
-      <div className="w=screen relative flex h-auto flex-col">
-        <Logo />
+      <div className="w=screen relative flex h-auto flex-col  dark:bg-slate-950 dark:text-white">
+        <Header />
 
         {/* section after logo */}
-        <div className="mt-5 grid h-auto gap-6 rounded-md bg-gray-50 px-2 py-4 sm:px-12 md:mx-12 lg:grid-cols-4">
+        <div className="my-6 grid h-auto gap-6 rounded-md bg-gray-50 px-2 py-8 sm:px-12 md:mx-12 lg:grid-cols-4 dark:bg-slate-800">
           {/* left section */}
-          <div className="gap-3 space-y-4 lg:col-span-3">
+          <div className="gap-3 space-y-4 lg:col-span-3 ">
             <div className="space-y-4">
               <div className="flex gap-3 ">
                 <BaseCurrencyDropDown />

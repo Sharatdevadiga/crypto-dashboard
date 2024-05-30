@@ -33,7 +33,6 @@ ChartJS.register(
 export function getChartData(dataFromAPI, from, baseCurrency) {
   if (!dataFromAPI.length) return {};
 
-  console.log(dataFromAPI);
 
   const aggregatedChartData = dataFromAPI.map((item) => ({
     name: item[0],

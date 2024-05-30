@@ -7,11 +7,13 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
+- [Framework / Dependencies](#framework--dependencies)
+- [Folder structure](#project-folder-structure)
 - [Contributing](#contributing)
 - [Contact](#contact)
 - [Demo/Screenshots](#demoscreenshots)
 
-Through this web application, you can see real-time data of cryptocurrencies and visualize them through charts. To see the application live, you can directly jump to this link: [Crypto Dashboard Live](https://crypto-dashboard-sharath.netlify.app/). If you’d like to know more about the project, then the content below is for you, my friend :).
+Through this web application, you can see real-time data of cryptocurrencies and visualize them through charts. To see the application live, you can directly jump to this link: [Crypto Dashboard Live](https://crypto-dashboard-sharath.netlify.app/). If you’d like to know more about the project, then the content below is for you.
 
 ## Introduction
 
@@ -26,6 +28,17 @@ This application provides you with:
 - Exchange rates of various cryptocurrencies
 - Search functionality for specific cryptocurrencies and visualization of their data
 - User-friendly interface with a responsive design
+- Dark Mode
+
+## Framework / Dependencies
+
+1. [ReactJS](https://reactjs.org/) - core of the application
+2. [Redux-thunk](https://github.com/reduxjs/redux-thunk) - for asynchronous data fetching
+3. [Redux-toolkit](https://redux-toolkit.js.org/) - for state management
+4. [TailwindCSS](https://tailwindcss.com/) - for Layout and styling
+5. [Chart.js](https://www.chartjs.org/) - for data visualization
+6. [React-chartjs-2](https://react-chartjs-2.js.org/) - for data visualization
+7. [Coingecko API](https://www.coingecko.com/en/api/documentation)- for data
 
 ## Project Folder Structure
 
@@ -73,28 +86,25 @@ Share your thoughts with me on:
 1.  linkdin -> www.linkedin.com/in/sharath-devadiga
 2.  email -> sharathdevadiga0046@gmail.com
 
-HAVE A NICE DAY :)
-
 ## Demo/Screenshots
 
-1. App Layout
-   ![App Layout](./screenshots/1.%20Layout.png)
+1.  App Layout
+    ![App Layout](./screenshots/1.%20Layout.png)
 
-2. Data Visualization
-   ![Vertical Bar Chart](./screenshots/2.%20Data_Visualization.png)
-   ![](./screenshots/2.%20Data_Visualization2.png)
+2.  Data Visualization
+    ![Vertical Bar Chart](./screenshots/2.%20Data_Visualization.png)
+    ![](./screenshots/2.%20Data_Visualization2.png)
 
-3. Search Bar (highlighted)
-   ![Horizontal Bar Chart](./screenshots/3.%20SearchBar.png)
+3.  Search Bar (highlighted)
+    ![Horizontal Bar Chart](./screenshots/3.%20SearchBar.png)
 
-4. Coin Exchange and Portfolio (highlighted)
-   ![Coin Exchange and Portfolio](./screenshots/4.%20CoinExchange_And_Portfolio.png)
+4.  Coin Exchange and Portfolio (highlighted)
+    ![Coin Exchange and Portfolio](./screenshots/4.%20CoinExchange_And_Portfolio.png)
 
-5. Dropdown and Loader
-   ![Dropdown and Loader](./screenshots/5.%20DropDown_And_Loader.png)
+5.  Dropdown and Loader
+    ![Dropdown and Loader](./screenshots/5.%20DropDown_And_Loader.png)
 
-6. Responsive Design
-   ![Responsive Design](./screenshots/6.%20Responsive%20Design.png)
+6.  Responsive Design
+    ![Responsive Design](./screenshots/6.%20Responsive%20Design.png)
 
-![alt text](image.png)
-![alt text](<Screenshot 2024-05-29 190907.png>)
+          HAVE A NICE DAY :)
