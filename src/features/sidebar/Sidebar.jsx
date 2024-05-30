@@ -1,3 +1,6 @@
+/**
+ * Sidebar component for displaying cryptocurrency data.
+ */
 import { useDispatch, useSelector } from "react-redux";
 import SidebarItem from "./SidebarItem";
 import { useEffect } from "react";
@@ -16,8 +19,8 @@ function Sidebar() {
   }, [baseCurrency]);
 
   return (
-    <div className="relative flex flex-col items-center h-screen px-4 pt-0 pb-4 space-y-2 overflow-y-scroll bg-white scrollbar-thumb-rounded-full scrollbar-h-4 min-w-72 scrollbar-thin">
-      <div className="sticky top-0 z-10 w-full px-2 py-2 my-4 text-xl font-bold text-center rounded-t-lg bg-blue-50/50 backdrop-blur backdrop-filter">
+    <div className="scrollbar-thumb-rounded-full scrollbar-h-4 relative flex h-screen min-w-72 flex-col items-center space-y-2 overflow-y-scroll bg-white px-4 pb-4 pt-0 scrollbar-thin">
+      <div className="sticky top-0 z-10 my-4 w-full rounded-t-lg bg-blue-50/50 px-2 py-2 text-center text-xl font-bold backdrop-blur backdrop-filter">
         <p>Cryptocurrency by m.cap</p>
       </div>
 

@@ -29,6 +29,7 @@ function Searchbar() {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
         setIsOptionsClosed(false);
+        setSearchKey("");
       }
     };
 
@@ -50,6 +51,7 @@ function Searchbar() {
   const handleSelection = (coinId) => {
     dispatch(setSelectedCrypto([coinId]));
     setIsOptionsClosed(false);
+    setSearchKey("");
   };
 
   // search results
@@ -61,14 +63,16 @@ function Searchbar() {
 
   return (
     <div ref={searchRef} className="relative  sm:w-full">
-      <div className="flex w-[100%] items-center rounded-md bg-white px-4 shadow-sm outline-blue-400 focus:outline lg:h-[100%]">
+      <div
+        className="flex w-[100%] items-center rounded-md bg-white px-4 shadow-sm outline-blue-400 focus:outline lg:h-[100%]"
+        onClick={handleSearchClick}
+      >
         <HiMagnifyingGlass />
         <input
           type="text"
           placeholder="Search by coin"
           value={searchKey}
-          onChange={() => handleChange()}
-          onClick={() => handleSearchClick()}
+          onChange={(e) => handleChange(e)}
           className="w-full px-4 py-2 outline-none"
         />
       </div>

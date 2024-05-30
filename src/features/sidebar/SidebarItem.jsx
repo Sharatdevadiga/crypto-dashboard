@@ -1,4 +1,13 @@
+/**
+ * Renders a sidebar item for a cryptocurrency.
+ *
+ * @component
+ * @param {Object} props.coin - The cryptocurrency object.
+ * @param {string} props.baseCurrency - The base currency symbol.
+ * @returns {JSX.Element} The rendered sidebar item.
+ */
 /* eslint-disable react/prop-types */
+
 import { BiSolidUpArrow } from "react-icons/bi";
 import { BiSolidDownArrow } from "react-icons/bi";
 import { capitilize } from "../../utils/helpers";
