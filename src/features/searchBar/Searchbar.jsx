@@ -62,9 +62,9 @@ function Searchbar() {
       );
 
   return (
-    <div ref={searchRef} className="relative sm:w-full ">
+    <div ref={searchRef} className="relative w-full">
       <div
-        className="flex w-[100%] items-center rounded-md bg-white px-4 shadow-sm outline-blue-400 focus:outline lg:h-[100%] dark:bg-slate-950"
+        className="flex w-[100%] items-center rounded-md bg-white px-4 shadow-sm outline-blue-400 focus:outline dark:bg-slate-950 lg:h-[100%]"
         onClick={handleSearchClick}
       >
         <HiMagnifyingGlass />

@@ -60,7 +60,7 @@ function ChartBasedOnType() {
   return (
     chartOptions &&
     chartData && (
-      <div className="flex w-full items-center justify-center">
+      <div className="flex min-h-[450px] w-full items-center justify-center">
         {chartType === "line" && (
           <Line options={chartOptions} data={chartData} />
         )}

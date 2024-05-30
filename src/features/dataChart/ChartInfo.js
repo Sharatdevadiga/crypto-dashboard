@@ -33,7 +33,6 @@ ChartJS.register(
 export function getChartData(dataFromAPI, from, baseCurrency) {
   if (!dataFromAPI.length) return {};
 
-
   const aggregatedChartData = dataFromAPI.map((item) => ({
     name: item[0],
     aggregatedData: aggregateData(item[1], from),
@@ -46,9 +45,20 @@ export function getChartData(dataFromAPI, from, baseCurrency) {
     "rgba(74, 222, 128, 0.5)",
   ];
 
+  // eslint-disable-next-line no-unused-vars
+  const priceFormatter = function (value, index, values) {
+    if (value >= 1e6) {
+      return (value / 1e6).toFixed(1) + "M";
+    }
+    if (value >= 1e3) {
+      return (value / 1e3).toFixed(1) + "K";
+    }
+    return value;
+  };
+
   const commonChartOptions = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
 
     plugins: {
       legend: {
@@ -82,6 +92,10 @@ export function getChartData(dataFromAPI, from, baseCurrency) {
           display: true,
           text: `Price in ${baseCurrency}`,
         },
+
+        ticks: {
+          callback: priceFormatter,
+        },
       },
     },
   };
@@ -101,6 +115,9 @@ export function getChartData(dataFromAPI, from, baseCurrency) {
         title: {
           display: true,
           text: `Price in ${baseCurrency}`,
+        },
+        ticks: {
+          callback: priceFormatter,
         },
       },
     },

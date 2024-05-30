@@ -12,12 +12,12 @@ import Header from "../ui/Header";
 
 function Dashboard() {
   return (
-    <div>
-      <div className="w=screen relative flex h-auto flex-col  dark:bg-slate-950 dark:text-white">
+    <div className="w-full">
+      <div className="relative flex h-auto w-full flex-col dark:bg-slate-950 dark:text-white">
         <Header />
 
         {/* section after logo */}
-        <div className="my-6 grid h-auto gap-6 rounded-md bg-gray-50 px-2 py-8 sm:px-12 md:mx-12 lg:grid-cols-4 dark:bg-slate-800">
+        <div className="my-6 grid h-auto w-auto grid-cols-1 gap-6 rounded-md bg-gray-100 px-2 py-8 dark:bg-slate-800 sm:px-12 md:mx-12 xl:grid-cols-4">
           {/* left section */}
           <div className="gap-3 space-y-4 lg:col-span-3 ">
             <div className="space-y-4">
@@ -35,7 +35,9 @@ function Dashboard() {
           </div>
 
           {/* side bar */}
-          <Sidebar />
+          <div className="">
+            <Sidebar />
+          </div>
         </div>
       </div>
       <Footer></Footer>

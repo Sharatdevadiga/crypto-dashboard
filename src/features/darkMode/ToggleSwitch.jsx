@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaSun } from "react-icons/fa";
 
 function ToggleSwitch() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -15,15 +16,17 @@ function ToggleSwitch() {
         id="toggle"
         checked={isDarkMode}
         onChange={toggleDarkMode}
-        className="toggle-checkbox absolute block h-6 w-6 cursor-pointer appearance-none rounded-full bg-white"
+        className="toggle-checkbox absolute block h-6 w-6 cursor-pointer appearance-none rounded-full bg-gray-300"
       />
       <label
         htmlFor="toggle"
         className={`toggle-label block h-6 cursor-pointer overflow-hidden rounded-full border-2 bg-gray-300`}
       >
         <span
-          className={`toggle-circle absolute left-0 top-0 h-6 w-6 transform rounded-full shadow-inner transition-transform ${isDarkMode ? "translate-x-4 bg-gray-600" : "translate-x-0 bg-gray-50"}`}
-        ></span>
+          className={`toggle-circle absolute left-0 top-0 h-6 w-6 transform rounded-full border-2 shadow-inner transition-transform ${isDarkMode ? "translate-x-4 bg-gray-900" : "translate-x-0 bg-gray-100"}`}
+        >
+          {isDarkMode ? "" : <FaSun />}
+        </span>
       </label>
     </div>
   );

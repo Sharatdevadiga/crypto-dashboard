@@ -74,10 +74,10 @@ function SelectCrypto() {
   return (
     <div ref={ref}>
       <div
-        className="relative flex h-8 w-44 items-center justify-between rounded-lg bg-blue-50 py-1 pl-6 pr-2 outline-blue-400 focus:outline dark:bg-slate-800 dark:text-white"
+        className="w:32 relative flex h-8 items-center justify-between rounded-lg bg-blue-50 py-1 pl-6 pr-2 outline-blue-400 focus:outline dark:bg-slate-800 dark:text-white sm:w-44"
         onClick={() => handleclick()}
       >
-        <div className="w-36 overflow-hidden text-nowrap pr-4">
+        <div className="w-24 overflow-hidden text-nowrap pr-8 sm:w-36 sm:pr-4">
           {coinListStatus === "loading"
             ? "Loading..."
             : coinListStatus === "Error"
@@ -86,7 +86,7 @@ function SelectCrypto() {
                 ? selectedCrypto
                     .map((id) => capitilize(id))
                     .join(", ")
-                    .slice(0, 16) + (selectedCrypto.length > 1 ? "..." : "")
+                    .slice(0, 10) + (selectedCrypto.length > 1 ? "..." : "")
                 : "Select Coins"}
         </div>
         <div className="justify-self-end">

@@ -13,7 +13,7 @@ import ChartBasedOnType from "./ChartBasedOnType";
 
 function DataChart() {
   return (
-    <div className="min-h-96 max-w-full space-y-4 rounded-lg bg-white px-1 py-6 sm:p-6 dark:bg-slate-950 dark:text-white">
+    <div className="min-h-96 max-w-full space-y-6 rounded-lg bg-white px-1 py-8 dark:bg-slate-950 dark:text-white sm:p-6">
       <div className="flex flex-wrap justify-center gap-6 sm:flex lg:justify-between">
         <DurationButtons />
         <div className="flex space-x-4">

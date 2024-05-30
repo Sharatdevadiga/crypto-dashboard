@@ -71,7 +71,7 @@ function aggregateByHours(data, hours) {
     // Round down to the nearest multiple of `hours`
     date.setHours(Math.floor(date.getHours() / hours) * hours, 0, 0, 0);
     const day = String(date.getDate()).padStart(2, "0");
-    const key = `${date.getHours() % 12 === 0 ? 12 : date.getHours() % 12} ${date.getHours() >= 12 ? "PM" : "AM"} (${day}th)`;
+    const key = `${date.getHours() % 12 === 0 ? 12 : date.getHours() % 12} ${date.getHours() >= 12 ? "PM" : "AM"} (${day})`;
 
     if (!result[key]) {
       result[key] = { sum: value, count: 1 };
@@ -160,8 +160,8 @@ function aggregateByMonths(data) {
     date.setDate(1);
     date.setHours(0, 0, 0, 0);
     const key = date.toLocaleDateString("default", {
-      month: "long",
-      year: "numeric",
+      month: "short",
+      year: "2-digit",
     });
 
     if (!result[key]) {
