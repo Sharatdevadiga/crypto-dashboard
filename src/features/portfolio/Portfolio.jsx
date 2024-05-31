@@ -23,7 +23,7 @@ function Portfolio() {
   }, []);
 
   return (
-    <div className="h-80 rounded-lg bg-white p-6 dark:bg-slate-950">
+    <div className="p-6 bg-white rounded-lg h-80 dark:bg-slate-950">
       <div className="flex justify-between gap-12">
         <p className="text-lg font-bold">Portfolio (Global m.cap %)</p>
         <p>
@@ -31,7 +31,7 @@ function Portfolio() {
           <span className="font-bold">100%</span>
         </p>
       </div>
-      <div className="flex h-full items-center justify-center self-center">
+      <div className="flex items-center self-center justify-center h-full">
         {status === "loading" && <Loader />}
         {status === "error" && <Error message={error} />}
         {marketCapData && (
@@ -40,7 +40,6 @@ function Portfolio() {
             options={pieChartOptions}
           />
         )}
-        ;
       </div>
     </div>
   );
