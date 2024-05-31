@@ -55,9 +55,6 @@ function ChartBasedOnType() {
   const chartOptions =
     chartType === "barH" ? horizontalBarOptions : defaultChartOptions;
 
-  if (status === "loading") return <Loader />;
-  if (status === "error" || error !== null) return <Error message={error} />;
-
   return chartOptions && chartData ? (
     <div className="flex min-h-[450px] w-full items-center justify-center">
       {chartType === "line" && <Line options={chartOptions} data={chartData} />}
@@ -66,8 +63,14 @@ function ChartBasedOnType() {
         <Bar options={chartOptions} data={chartData}></Bar>
       )}
     </div>
+  ) : status === "loading" ? (
+    <Loader />
+  ) : status === "error" || error !== null ? (
+    <Error message={error} />
   ) : (
-    <Error message={"Too many requests"}></Error>
+    <Error
+      message={"There is no data. none selected or too many request"}
+    ></Error>
   );
 }
 
