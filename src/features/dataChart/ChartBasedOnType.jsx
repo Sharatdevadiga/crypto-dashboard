@@ -58,21 +58,16 @@ function ChartBasedOnType() {
   if (status === "loading") return <Loader />;
   if (status === "error" || error !== null) return <Error message={error} />;
 
-  return (
-    chartOptions &&
-    chartData && (
-      <div className="flex min-h-[450px] w-full items-center justify-center">
-        {chartType === "line" && (
-          <Line options={chartOptions} data={chartData} />
-        )}
-        {chartType === "barV" && (
-          <Bar options={chartOptions} data={chartData} />
-        )}
-        {chartType === "barH" && (
-          <Bar options={chartOptions} data={chartData}></Bar>
-        )}
-      </div>
-    )
+  return chartOptions && chartData ? (
+    <div className="flex min-h-[450px] w-full items-center justify-center">
+      {chartType === "line" && <Line options={chartOptions} data={chartData} />}
+      {chartType === "barV" && <Bar options={chartOptions} data={chartData} />}
+      {chartType === "barH" && (
+        <Bar options={chartOptions} data={chartData}></Bar>
+      )}
+    </div>
+  ) : (
+    <Error message={"Too many requests"}></Error>
   );
 }
 
