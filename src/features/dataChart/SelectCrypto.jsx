@@ -15,6 +15,7 @@ import { capitilize } from "../../utils/helpers";
 import Error from "../../ui/Error";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedCrypto } from "./dataChartSlice";
+import useClickOutside from "../../hooks/useClickOutside";
 
 function SelectCrypto() {
   const [isClose, setIsClose] = useState(true);
@@ -55,17 +56,7 @@ function SelectCrypto() {
   }, [multiSelectError]);
 
   // if clicked outside component the close it
-  const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setIsClose(true);
-    }
-  };
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  useClickOutside(ref, () => setIsClose(true));
 
   const handleclick = () => {
     setIsClose((isClose) => !isClose);

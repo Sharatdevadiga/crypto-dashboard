@@ -45,9 +45,10 @@ function ChartBasedOnType() {
       chartDataFromAPI,
       fromDate,
       baseCurrency,
+      chartType,
     );
     setChartDataAndOptions(dataAndOptions);
-  }, [chartDataFromAPI, fromDate, baseCurrency]);
+  }, [chartDataFromAPI, fromDate, baseCurrency, chartType]);
 
   const { chartData, defaultChartOptions, horizontalBarOptions } =
     chartDataAndOPtions;

@@ -1,34 +1,9 @@
 /**
- * @description This file contains the implementation of a pie chart component for displaying cryptocurrencies market share.
+ * This file contains the implementation of a pie chart component for displaying cryptocurrencies market share.
  */
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-const colors = ["#60a5fa", "#f87171", "#4ade80", "#a78bfa", "#fde047"];
-const SECTIONS = 5;
-
-/**
- * @constant {object} pieChartOptions - The options for configuring the pie chart.
- */
-export const pieChartOptions = {
-  plugins: {
-    legend: {
-      labels: {
-        usePointStyle: true,
-        boxHeight: 8,
-        padding: 16,
-        font: {
-          weight: "bold",
-          size: 13,
-        },
-      },
-      position: "right",
-    },
-  },
-  layout: {},
-};
 
 /**
  * @function getPiechartData
@@ -37,10 +12,13 @@ export const pieChartOptions = {
  * @returns {object} The formatted data for the pie chart.
  */
 export const getPiechartData = (data) => {
-  // getting labels and remaining
+  const colors = ["#60a5fa", "#f87171", "#4ade80", "#a78bfa", "#fde047"];
+  const SECTIONS = 5;
+
+  // getting labels based on number of sections
   const mCap = Object.entries(data).sort((a, b) => b[1] - a[1]);
   const labels = mCap
-    .map((coin) => `${coin[0]} (${coin[1].toFixed(2)}%)`)
+    .map((coin) => `${coin[0].toUpperCase()} (${coin[1].toFixed(2)}%)`)
     .slice(0, SECTIONS - 1);
   const reaminingPercent = mCap
     .slice(SECTIONS - 1)
@@ -64,4 +42,24 @@ export const getPiechartData = (data) => {
     labels,
     datasets,
   };
+};
+
+/**
+ * @constant {object} pieChartOptions - The options for configuring the pie chart.*/
+export const pieChartOptions = {
+  plugins: {
+    legend: {
+      labels: {
+        usePointStyle: true,
+        boxHeight: 8,
+        padding: 16,
+        font: {
+          weight: "bold",
+          size: 13,
+        },
+      },
+      position: "right",
+    },
+  },
+  layout: {},
 };

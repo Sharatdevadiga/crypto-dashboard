@@ -32,7 +32,7 @@ function CoinExchange() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-6 overflow-hidden rounded-lg rounded-md bg-white p-6 md:px-6 lg:py-6 xl:px-16 dark:bg-slate-950">
+    <div className="overflow-none relative flex flex-col items-center gap-6 rounded-lg rounded-md bg-white p-6 dark:bg-slate-950 md:px-6 lg:py-6 xl:px-16">
       <p className="text-lg font-bold">Exchange Coins</p>
 
       <div className="space-y-6">
@@ -48,7 +48,7 @@ function CoinExchange() {
 
           <input
             type="number"
-            className="w-24 self-end rounded-lg border-2 px-2 py-2 text-center text-sm outline-blue-400 focus:outline md:w-24 md:px-1 lg:w-28 xl:w-36 xl:px-4 dark:bg-slate-900"
+            className="w-24 self-end rounded-lg border-2 px-2 py-2 text-center text-sm outline-blue-400 focus:outline dark:bg-slate-900 md:w-24 md:px-1 lg:w-28 xl:w-36 xl:px-4"
             placeholder="Enter Val"
             value={coinCount}
             onChange={(e) => dispatch(setCoinCount(e.target.value))}

@@ -5,13 +5,14 @@
  *
 
  */
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedCrypto } from "../dataChart/dataChartSlice";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import Loader from "../../ui/Loader";
 import Error from "../../ui/Error";
+import useClickOutside from "../../hooks/useClickOutside";
 
 function Searchbar() {
   const dispatch = useDispatch();
@@ -19,29 +20,19 @@ function Searchbar() {
   const { cryptoData: coinList, status: coinListStatus } = useSelector(
     (state) => state.sidebar,
   );
-  const [isOptionsClosed, setIsOptionsClosed] = useState(false);
+  const [isOptionsClosed, setIsOptionsClosed] = useState(true);
   const [searchKey, setSearchKey] = useState("");
 
   // closing the search options when user clicks outside
   const searchRef = useRef();
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setIsOptionsClosed(false);
-        setSearchKey("");
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  useClickOutside(searchRef, () => {
+    setIsOptionsClosed(true);
+    setSearchKey("");
+  });
 
   // handler functions
   function handleSearchClick() {
-    setIsOptionsClosed(true);
+    setIsOptionsClosed(false);
   }
 
   function handleChange(e) {
@@ -50,7 +41,7 @@ function Searchbar() {
 
   const handleSelection = (coinId) => {
     dispatch(setSelectedCrypto([coinId]));
-    setIsOptionsClosed(false);
+    setIsOptionsClosed(true);
     setSearchKey("");
   };
 
@@ -76,7 +67,7 @@ function Searchbar() {
           className="w-full px-4 py-2 outline-none dark:bg-slate-950"
         />
       </div>
-      {isOptionsClosed && (
+      {!isOptionsClosed && (
         <div className="custom-scrollbar absolute left-0 z-50 h-48 w-full overflow-y-scroll rounded-lg border-2 bg-white px-6 py-2 scrollbar-thin dark:border-gray-700 dark:bg-slate-950">
           {coinListStatus === "loading" && <Loader />}
           {coinListStatus === "error" && <Error message="Error" />}

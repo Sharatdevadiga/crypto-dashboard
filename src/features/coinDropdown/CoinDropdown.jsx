@@ -17,6 +17,7 @@ import { FaAngleUp } from "react-icons/fa";
 import Loader from "../../ui/Loader";
 import Error from "../../ui/Error";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
+import useClickOutside from "../../hooks/useClickOutside";
 
 function CoinDropdown({ selectedCoin, onChange, type }) {
   const ref = useRef(null);
@@ -38,24 +39,14 @@ function CoinDropdown({ selectedCoin, onChange, type }) {
   }
 
   // if clicked outside component the close it
-  const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setIsClose(true);
-    }
-  };
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  useClickOutside(ref, () => setIsClose(true));
 
   // custom dropdown menu
   return (
-    <div className="relative" ref={ref}>
+    <div className="relative " ref={ref}>
       {/* selector */}
       <div
-        className={` ${type === "baseCurrency" ? "bg-white" : "bg-gray-50"} dark-text-white flex items-center  gap-1 rounded-lg px-4 py-2 outline-blue-400 focus:outline dark:bg-slate-900 `}
+        className={` ${type === "baseCurrency" ? "bg-white dark:bg-slate-950" : "bg-gray-50"} dark-text-white flex items-center  gap-1 rounded-lg px-4 py-2 outline-blue-400 focus:outline dark:bg-slate-900 `}
         value={selectedCoin}
         onClick={() => handleOpen()}
       >
@@ -66,7 +57,7 @@ function CoinDropdown({ selectedCoin, onChange, type }) {
       </div>
       {/* options */}
       {!isClose && (
-        <div className="custom-scrollbar absolute left-0 z-10 h-48 w-48 overflow-y-scroll rounded-lg border-2 bg-white px-6 py-2 dark:border-gray-700 dark:bg-slate-950">
+        <div className="custom-scrollbar absolute left-0 z-20 h-48 w-48 overflow-y-scroll rounded-lg border-2 bg-white px-6 py-2 dark:border-gray-700 dark:bg-slate-950 ">
           {status === "loading" && <Loader />}
           {status === "error" && <Error message="Error" />}
           {coins ? (
@@ -78,7 +69,7 @@ function CoinDropdown({ selectedCoin, onChange, type }) {
                   value={coin}
                   onClick={(e) => handleClick(e)}
                 >
-                  {coin}
+                  {coin.toUpperCase()}
                   {selectedCoin === coin && <IoCheckmarkCircleOutline />}
                 </button>
               ))}

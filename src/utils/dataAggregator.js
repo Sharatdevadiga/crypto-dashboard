@@ -178,7 +178,7 @@ function aggregateByMonths(data) {
   }
 
   const resultArray = Object.entries(result).sort(
-    ([keyA], [keyB]) => new Date(keyA) - new Date(keyB),
+    ([keyA], [keyB]) => new Date(keyB) - new Date(keyA),
   );
 
   return resultArray;

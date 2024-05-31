@@ -30,7 +30,7 @@ ChartJS.register(
   Legend,
 );
 
-export function getChartData(dataFromAPI, from, baseCurrency) {
+export function getChartData(dataFromAPI, from, baseCurrency, chartType) {
   if (!dataFromAPI.length) return {};
 
   const aggregatedChartData = dataFromAPI.map((item) => ({
@@ -124,7 +124,8 @@ export function getChartData(dataFromAPI, from, baseCurrency) {
     },
   };
 
-  const labels = aggregatedChartData[0].aggregatedData.map((item) => item[0]);
+  let labels = aggregatedChartData[0].aggregatedData.map((item) => item[0]);
+  if (chartType === "barH") labels = labels.reverse();
 
   const chartData = {
     labels,
