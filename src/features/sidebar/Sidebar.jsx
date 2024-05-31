@@ -20,7 +20,7 @@ function Sidebar() {
 
   return (
     <div className="custom-scrollbar relative mx-auto flex h-screen  w-[90%] flex-col items-center space-y-2 overflow-y-scroll rounded-lg bg-white px-2 pb-4 pt-0 scrollbar-thin md:w-[100%] xl:h-[940px]">
-      <div className="sticky top-0 z-10 mb-4 w-full rounded-t-lg bg-blue-50/50 px-2 py-3 text-center text-xl font-bold backdrop-blur backdrop-filter dark:bg-slate-800/50 ">
+      <div className="sticky top-0 z-10 w-full px-2 py-3 mb-4 text-xl font-bold text-center rounded-t-lg bg-blue-50/50 backdrop-blur backdrop-filter dark:bg-slate-800/50 ">
         <p>Cryptocurrency by m.cap</p>
       </div>
 
@@ -37,6 +37,8 @@ function Sidebar() {
           ) : (
             <Loader />
           )
+        ) : status === "loading" ? (
+          <Loader />
         ) : (
           <Error message="Loading failed" />
         )}
