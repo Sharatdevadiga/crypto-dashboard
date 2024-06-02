@@ -1,6 +1,6 @@
 # Crypto Dashboard
 
-Through this web application, you can see real-time data of cryptocurrencies and visualize them through charts. To see the application live, you can directly jump to this link: [Crypto Dashboard Live](https://crypto-dashboard-sharath.netlify.app/). If you’d like to know more about the project, then the content below is for you.
+This web application lets you see real-time data on cryptocurrencies and visualize them through charts. To see the application live, you can directly jump to this link: [Crypto Dashboard Live](https://crypto-dashboard-sharath.netlify.app/). If you’d like to know more about the project, then the content below is for you.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ Through this web application, you can see real-time data of cryptocurrencies and
 
 ## Introduction
 
-This project is a front-end project submitted to Almabetter. It aims to provide you with up-to-date information and visualizations of various cryptocurrencies. The application fetches data from the CoinGecko API and displays it in an intuitive and user-friendly interface.
+This front-end project was submitted to Almabetter. It aims to provide you with up-to-date information and visualizations of various cryptocurrencies. The application fetches data from the CoinGecko API and displays it in an intuitive and user-friendly interface.
 
 ## Framework / Dependencies
 
@@ -45,13 +45,13 @@ This application provides you with:
     a. App Layout - Dark mode
     ![App Layout - Dark mode](./screenshots/LayoutDarkFull.png)
 
-    2.App Layout - Light mode
+    2. App Layout - Light mode
     ![App Layout - Light mode](./screenshots/layoutLightFull.png)
 
-2.  Data Visualization -> you can select different charts(line/ barH/ barV), different timeperiod(1D, 1W, 1M 6M or 1Y), You can also select upto 4 charts at a time to compare them side by side in the same chart. You can also search for a specific crypto currenct in the search bar
+2.  Data Visualization -> You can select different charts(line/ barH/ barV), and different time periods (1D, 1W, 1M 6M, or 1Y), You can also select up to 4 charts at a time to compare them side by side in the same chart. You can also search for a specific crypto currency in the search bar
 
     a. Line chart - With 1 year data and 3 plots
-    ![Line chart - With 1 year data and 3 plots](./screenshots/line%20chart.png)
+    ![Line chart - With 1-year data and 3 plots](./screenshots/line%20chart.png)
 
     b. Vertical Bar chart - With 6Months data
     ![Vertical Bar chart - With 6Months data](./screenshots/barchartV6mont.png)
@@ -60,7 +60,7 @@ This application provides you with:
     ![Horizontal Bar chart - With 1Month Data](./screenshots/barH1Month.png)
     ![](./screenshots/2.%20Data_Visualization2.png)
 
-3.  Coin Exchange and Portfolio- With coin Exchange block you can know exchange rate between different coins. And with portfolio, you can visualize the M.cap% of top 4 crypto currencies.
+3.  Coin Exchange and Portfolio- With a coin Exchange block you can know the exchange rate between different coins. And with a portfolio, you can visualize the M.cap% of the top 4 cryptocurrencies.
 
     a. CoinExchange
     ![Coin Exchange](./screenshots/CoinExchange.png)
@@ -83,7 +83,7 @@ This application provides you with:
 
 ## Project Folder Structure
 
-In order to provide all the above features, we need the code to be well organized. For that, I used a feature-based approach, where related components and Redux state slices are kept in a single folder as shown in the image below:
+We need the code to be well organized to provide all the above features. For that, I used a feature-based approach, where related components and Redux state slices are kept in a single folder as shown in the image below:
 ![alt text](./screenshots/FolderStructure.png)
 
 ## Installation
@@ -114,8 +114,7 @@ If you’d like to get the code and run it on your computer, then you can follow
     npm run dev
     ```
 
-5.  Finally (I know I already said this word, but trust me :), this is the last step), open your browser and visit `http://localhost:3000` to access the web page in your browser.
-
+5.  Finally (I know I already said this word, but trust me :), this is the last step), you can follow the given link, to see the live application.
 ## Contributing
 
 If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request. Or if you’d like to share...
