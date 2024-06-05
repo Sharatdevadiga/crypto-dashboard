@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaSun } from "react-icons/fa";
 
 function ToggleSwitch() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);

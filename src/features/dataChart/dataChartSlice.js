@@ -26,7 +26,7 @@ const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 const initialState = {
   chartType: "line",
-  selectedCrypto: ["bitcoin"],
+  selectedCrypto: ["binancecoin", "solana"],
   fromDate: "1Y",
   toDateInUnix: getCurrentHourInUnix(),
   status: "idle",

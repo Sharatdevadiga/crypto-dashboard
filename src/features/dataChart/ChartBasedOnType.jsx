@@ -55,23 +55,29 @@ function ChartBasedOnType() {
   const chartOptions =
     chartType === "barH" ? horizontalBarOptions : defaultChartOptions;
 
-  return chartOptions && chartData ? (
-    <div className="flex min-h-[450px] w-full items-center justify-center">
-      {chartType === "line" && <Line options={chartOptions} data={chartData} />}
-      {chartType === "barV" && <Bar options={chartOptions} data={chartData} />}
-      {chartType === "barH" && (
-        <Bar options={chartOptions} data={chartData}></Bar>
-      )}
-    </div>
-  ) : status === "loading" ? (
-    <Loader />
-  ) : status === "error" || error !== null ? (
-    <Error message={error} />
-  ) : (
-    <Error
-      message={"There is no data. none selected or too many request"}
-    ></Error>
-  );
+  if (status === "loading") {
+    return <Loader />;
+  } else if (status === "error") {
+    return <Error message={error || "An unknown error occurred"} />;
+  } else if (chartData) {
+    return (
+      <div className="flex min-h-[450px] w-full items-center justify-center">
+        {chartType === "line" && (
+          <Line options={chartOptions} data={chartData} />
+        )}
+        {chartType === "barV" && (
+          <Bar options={chartOptions} data={chartData} />
+        )}
+        {chartType === "barH" && (
+          <Bar options={chartOptions} data={chartData} />
+        )}
+      </div>
+    );
+  } else {
+    return (
+      <Error message={"There is no data. None selected or too many requests"} />
+    );
+  }
 }
 
 export default ChartBasedOnType;
